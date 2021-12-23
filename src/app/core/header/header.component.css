@@ -1,4 +1,4 @@
-.toolbar {
+﻿.toolbar {
   position: absolute;
   top: 0;
   left: 0;
@@ -9,4 +9,9 @@
   background-color: #1976d2;
   color: white;
   font-weight: 600;
+}
+.toolbar-span{
+  margin-left: 1%;
+  font-size: 130%;
+  font-family: Georgia, serif;
 }
