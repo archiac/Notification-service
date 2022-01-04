@@ -7,6 +7,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 /**
  * @author Artur Marchanka
  */
-public interface ServiceRepo extends JpaRepository<Service,Long> {
+public interface ServiceRepo extends JpaRepository<Service, Long> {
   Service findByAPIAddress(String APIAddress);
 }

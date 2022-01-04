@@ -27,16 +27,16 @@ public class ServiceController {
   }
 
   @GetMapping("list")
-  public ResponseEntity<Response> getServices(){
+  public ResponseEntity<Response> getServices() {
 
     return ResponseEntity.ok(
-            Response.builder()
-                    .timeStamp(LocalDateTime.now())
-                    .data(Map.of("services",servServiceImplementation.list(20)))
-                    .message("Services retrieved")
-                    .status(OK)
-                    .statusCode(OK.value())
-                    .build()
+      Response.builder()
+        .timeStamp(LocalDateTime.now())
+        .data(Map.of("services", servServiceImplementation.list(20)))
+        .message("Services retrieved")
+        .status(OK)
+        .statusCode(OK.value())
+        .build()
     );
   }
 }

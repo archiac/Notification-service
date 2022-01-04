@@ -8,12 +8,14 @@ import org.springframework.http.HttpStatus;
 import java.time.LocalDateTime;
 import java.util.Map;
 
+import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
+
 /**
  * @author Artur Marchanka
  */
 @Data
 @SuperBuilder
-@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonInclude(NON_NULL)
 public class Response {
   protected LocalDateTime timeStamp;
   protected int statusCode;

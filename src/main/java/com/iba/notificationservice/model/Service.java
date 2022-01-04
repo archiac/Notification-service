@@ -23,7 +23,6 @@ public class Service {
   @Column(unique = true)
   private String APIAddress;
   private String name;
-  private String imageUrl;
   private String message;
   private Status status;
 }

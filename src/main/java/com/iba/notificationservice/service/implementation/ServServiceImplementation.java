@@ -11,6 +11,8 @@ import javax.transaction.Transactional;
 import java.util.Collection;
 import java.util.logging.Logger;
 
+import static org.springframework.data.domain.PageRequest.of;
+
 /**
  * @author Artur Marchanka
  */
@@ -29,8 +31,7 @@ public class ServServiceImplementation implements ServService {
 
   @Override
   public Service create(Service service) {
-
-   log.info("Saving new service: {}", service.getName());
+    log.info("Saving new service: {}", service.getName());
     return serviceRepo.save(service);
   }
 
@@ -41,7 +42,8 @@ public class ServServiceImplementation implements ServService {
 
   @Override
   public Collection<Service> list(int limit) {
-    return null;
+    log.info("Fetching all services");
+    return serviceRepo.findAll(of(0, limit)).toList();
   }
 
   @Override
