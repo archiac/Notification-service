@@ -3,6 +3,7 @@ package com.iba.notificationservice.service.implementation;
 import com.iba.notificationservice.model.Service;
 import com.iba.notificationservice.repo.ServiceRepo;
 import com.iba.notificationservice.service.ServService;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,14 +21,10 @@ import static org.springframework.data.domain.PageRequest.of;
 @org.springframework.stereotype.Service
 @Transactional
 @Slf4j
+@AllArgsConstructor
 public class ServServiceImplementation implements ServService {
 
-
   private final ServiceRepo serviceRepo;
-
-  public ServServiceImplementation(ServiceRepo serviceRepo) {
-    this.serviceRepo = serviceRepo;
-  }
 
   @Override
   public Service create(Service service) {
@@ -48,16 +45,20 @@ public class ServServiceImplementation implements ServService {
 
   @Override
   public Service get(Long id) {
-    return null;
+    log.info("Fetching service by id: {}", id);
+    return serviceRepo.getById(id);
   }
 
   @Override
   public Service update(Service service) {
-    return null;
+    log.info("Updating new service: {}", service.getName());
+    return serviceRepo.save(service);
   }
 
   @Override
   public Boolean delete(Long id) {
-    return null;
+    log.info("Deleting service by id: {}", id);
+    serviceRepo.deleteById(id);
+    return true;
   }
 }
